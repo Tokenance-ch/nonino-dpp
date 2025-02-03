@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <title>Document</title>
+    <style>
+        :root {
+            --PrimaryColor: hsl(199, 100%, 33%);
+            --SecondaryColor: hsl(187, 85%, 43%);
+            --GradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+            --WhiteColor: hsl(0, 0%, 100%);
+            --BlackColor: hsl(201, 33%, 16%);
+            --TextColor: hsl(240, 4%, 36%);
+            --WhiteColorDeam: hsl(0, 0%, 93%);
+            --GrayText: rgb(190, 190, 190);
+            --InputColor: rgb(239, 239, 239);
+            --BodyColor: rgb(240, 240, 240);
+            --cardBG: rgb(225, 225, 225)
+        }
+
+        body {
+            margin: 0;
+            color: dimgray;
+        }
+
+        textarea {
+            resize: none;
+            padding: 5px;
+        }
+
+        .special {
+            background-color: red;
+        }
+
+        textarea:disabled {
+            cursor: default;
+            background-color: white;
+            color: black;
+            border: 1px solid grey;
+            border-radius: 5px;
+        }
+
+        .mainContainer {
+            font-family: sans-serif;
+            display: flex;
+            height: 70vh;
+            gap: 20px;
+            padding: 20px
+        }
+
+        .typeInterface {
+            display: flex;
+            gap: 30px;
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            min-height: 10vh;
+        }
+
+        .typeWindow {
+            min-width: 50vw;
+            width: 100%;
+        }
+
+        button {
+            min-width: 10vw;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid grey;
+            border-radius: 5px;
+            color: dimgray;
+        }
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+            border: 1px solid grey;
+            border-radius: 5px;
+            color: dimgray;
+        }
+
+        button:active {
+
+
+            background-color: rgba(0, 0, 0, 0);
+
+            border: 1px solid lightgrey;
+
+            border-radius: 5px;
+
+            color: lightgray
+
+
+        }
+
+
+        button:disabled {
+
+
+            background-color: rgba(0, 0, 0, 0);
+
+            border: 1px solid lightgrey;
+
+            border-radius: 5px;
+
+            color: lightgray
+
+
+        }
+
+
+        .mainChat {
+
+
+            height: -webkit-fill-available;
+
+            display: flex;
+
+            flex-grow: 1;
+
+            flex-direction: column;
+
+        }
+
+        .chatInterface {
+
+            height: -webkit-fill-available;
+
+            width: 100%;
+
+            border: 1px solid grey;
+
+            border-radius: 5px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+            padding-top: 15px;
+
+            padding-bottom: 15px;
+
+            overflow: scroll;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .historyChat {
+
+            border-radius: 5px;
+
+            border: 1px solid grey;
+
+            width: 20vw;
+
+            min-width: 20vw;
+
+            padding: 20px;
+
+        }
+
+
+        .chatLineSent {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            padding-left: 25px;
+
+            padding-right: 25px;
+
+        }
+
+
+        .message_sent {
+
+            max-width: 80%;
+
+            min-width: 20%;
+
+            width: fit-content;
+
+            padding: 10px;
+
+            border-radius: 10px;
+
+            border: 1px solid grey;
+
+        }
+
+
+        .chatLineRec {
+
+            display: flex;
+
+            justify-content: flex-start;
+
+            padding-left: 25px;
+
+            padding-right: 25px;
+
+        }
+
+
+        .message_rec {
+
+            max-width: 80%;
+
+            width: fit-content;
+
+            padding: 10px;
+
+            border-radius: 10px;
+
+            border: 1px solid grey;
+
+        }
+
+
+        .mainMenu {
+
+            font-family: sans-serif;
+
+            padding-left: 20px;
+
+            padding-right: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding-top: 10px;
+
+            padding-bottom: 10px;
+
+        }
+
+
+        .mainMenu_NoPadding {
+
+            font-family: sans-serif;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding-top: 10px;
+
+            padding-bottom: 10px;
+
+        }
+
+        .menuLeft {
+
+            display: flex;
+
+            gap: 20px;
+
+        }
+
+
+        .logodiv img {
+
+
+            height: 7.5vh;
+
+            width: 15vh;
+
+            object-fit: cover;
+
+
+        }
+
+
+        .userContainer {
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: center
+
+        }
+
+        .userPic {
+
+            color: white;
+
+            background-color: black;
+
+            border-radius: 50%;
+
+            padding: 1vw;
+
+            width: 1.5vw;
+
+            height: 1.5vw;
+
+
+            min-width: 30px;
+
+            min-height: 30px;
+
+            display: flex;
+
+            /* text-align: center; */
+
+            /* vertical-align: middle; */
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+        .userPic img {
+
+
+            height: 7.5vh;
+
+            width: 7.5vh;
+
+            object-fit: cover;
+
+            object-position: 40% 40%;
+
+            border-radius: 100%;
+
+
+        }
+
+
+        .switcher {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px
+
+        }
+
+
+        .menuRight {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        .chatLog {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            cursor: pointer;
+
+            padding-top: 10px;
+
+            padding-left: 10px;
+
+        }
+
+
+        .iconGrid {
+
+            display: flex;
+
+            gap: 10px
+
+        }
+
+
+        @media only screen and (max-width: 600px) {
+
+            .mainContainer {
+
+                flex-direction: column;
+
+                height: 85vh;
+
+            }
+
+
+            .mainChat {
+
+                max-height: -webkit-fill-available;
+
+                height: auto;
+
+            }
+
+            .mainMenu {
+
+                flex-wrap: wrap;
+
+                gap: 20px;
+
+
+                justify-content: space-around;
+
+                padding-left: 0;
+
+                padding-right: 0;
+
+            }
+
+
+            .menuLeft {
+
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .menuRight {
+
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .historyChat {
+                width: auto;
+
+                display: none;
+
+                overflow: scroll;
+
+                height: 25vh;
+
+                min-height: 20vh;
+
+            }
+
+
+            .chatInterface {
+
+                max-height: 80vh;
+
+            }
+
+
+            textarea {
+
+                min-width: 50vw
+
+            }
+
+
+            #invia {
+                min-width: 20vw
+            }
+
+
+            .logodiv img {
+                width: 20vw;
+
+                padding-left: 20%;
+
+                padding-right: 20%;
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="mainMenu">
+
+    <div class="menuLeft">
+
+        <div class="logodiv">
+
+            <img src="https://media.licdn.com/dms/image/v2/D4E0BAQHa4WDleIxJWw/company-logo_200_200/company-logo_200_200/0/1690192161114?e=1739404800&v=beta&t=5tNII7TKx5rLI365F6tfCS7ogad9qfKakFJ5P3lY_UQ"
+                 alt="">
+
+        </div>
+
+
+    </div>
+
+    <div class="menuRight">
+
+        <div class="switcher">
+
+            <button> chiaro</button>
+
+            <button> scuro</button>
+
+        </div>
+
+
+        <div class="userContainer">
+
+
+            <div class="userPic">
+
+                DU
+
+            </div>
+
+
+            <div class="userName">
+
+                <b>Demo User ▾</b><br>
+
+                Administrator
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<div class="mainContainer">
+
+
+    <div class="historyChat">
+
+        <div class="storicTitle">
+
+            <div class="mainMenu_NoPadding">
+
+                <div class="menuLeft">
+
+                    <b>Storico Chat</b>
+
+                </div>
+
+                <div class="menuRight">
+
+                    <div class="iconGrid">
+
+
+
+                        <span class="material-symbols-outlined">
+
+                            delete_history
+
+                        </span>
+
+
+                        <div class="material-symbols-outlined" onclick="notShowHistory()">
+
+                            close
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="chatLog">
+
+            <b>
+                <div class="material-symbols-outlined" style="font-size: 15px;">
+
+                    delete
+
+                </div>
+
+                Demo</b>
+
+            <div style="font-size: small;">Oggi, 00:44 ➤</div>
+
+        </div>
+
+        <hr>
+
+
+        <div class="chatLog">
+
+            <b>
+                <div class="material-symbols-outlined" style="font-size: 15px;">
+
+                    delete
+
+                </div>
+
+                Demo</b>
+
+            <div style="font-size: small;">Oggi, 00:44 ➤</div>
+
+        </div>
+
+        <hr>
+
+
+        <div class="chatLog">
+
+            <b>
+                <div class="material-symbols-outlined" style="font-size: 15px;">
+
+                    delete
+
+                </div>
+
+                Demo</b>
+
+            <div style="font-size: small;">Oggi, 00:44 ➤</div>
+
+        </div>
+
+        <hr>
+
+
+    </div>
+
+    <div class="mainChat">
+
+
+        <div class="mainMenu">
+
+            <div class="menuleft">
+
+                <b>Demo</b>
+
+            </div>
+
+            <div class="menuRight">
+
+                <div class="iconGrid">
+
+
+                    <div class="material-symbols-outlined" onclick="location.reload()">
+
+                        delete
+
+                    </div>
+
+
+                    <span class="material-symbols-outlined">
+
+                            info
+
+                        </span>
+
+
+                    <span class="material-symbols-outlined" onclick="showHistory()">
+
+                            history
+
+                        </span>
+
+
+                    <span class="material-symbols-outlined" onclick="location.reload()">
+
+                            open_in_new
+
+                        </span>
+
+
+                </div>
+
+
+                <select id="selectChat" name="chatlist">
+
+
+                    <option value="Demoo">Demo</option>
+
+                    <option disabled="true" value="Def">------</option>
+
+                </select>
+
+
+                <button>Contesto Automatico</button>
+
+                <button>Contesto Manuale</button>
+
+            </div>
+
+        </div>
+
+
+        <div id="chatInterface" class="chatInterface">
+
+
+        </div>
+
+        <div class="typeInterface">
+
+            <textarea id="myQ" class="typeWindow" placeholder="Scrivi qui la tua domanda"></textarea>
+
+            <button id="invia"> Invia</button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+  var currentQuestion = 0
+
+  var currentLine = 0
+
+  var question = "quali accorgimenti devo prendere per gustare al meglio la vostra 'Grappa Optima'?"
+
+
+  var answer = "Per apprezzare al meglio la Grappa Nonino Optima, ti consiglio di seguire questi accorgimenti:<br><br> utilizza un bicchiere ampio tipo balloon, che permette una migliore diffusione degli aromi. <br><br>Servi la grappa a temperatura ambiente, intorno ai 18-20°C, ideale perché Optima è invecchiata in barriques.<br> <br> prima dell'assaggio, lascia riposare la grappa nel bicchiere per alcuni minuti; l'ossigenazione esalta i profumi e completa l'armonia tra naso e palato. Vedrai sarai contento!<br><br>sorseggia piccole quantità, permettendo al distillato di avvolgere il palato e rivelare le sue sfumature aromatiche. <br><br> Seguendo questi consigli, godrai appieno delle caratteristiche eleganti e del leggero sentore di vaniglia che distinguono la Grappa Nonino Optima."
+
+  var nomi = ["Luca", "Giulia", "Matteo", "Francesca", "Andrea", "Alessia", "Marco",
+
+    "Sofia", "Giovanni", "Chiara", "Antonio", "Martina", "Riccardo",
+
+    "Alice", "Davide", "Elisa", "Gabriele", "Valentina", "Nicola",
+
+    "Serena", "Stefano", "Caterina", "Lorenzo", "Roberta", "Emanuele",
+
+    "Federica", "Simone", "Silvia", "Francesco", "Marta", "Alessandro",
+
+    "Aurora"
+
+  ]
+
+
+  var cognomi = [
+
+    "Rossi", "Bianchi", "Esposito", "Ferrari", "Russo", "Romano", "Gallo",
+
+    "Ricci", "Marino", "Greco", "Conti", "De Luca", "Costa", "Mancini",
+
+    "Bruno", "Lombardi", "Moretti", "Barbieri", "Fontana", "Santoro",
+
+    "Rinaldi", "Caruso", "Ferrara", "Gatti", "Leone", "Giordano",
+
+    "Martini", "Ferri", "Bianco", "Marchetti", "Testa", "Pellegrini"
+
+  ]
+
+  var nome = nomi[Math.floor(Math.random() * nomi.length)]
+
+  var cognome = cognomi[Math.floor(Math.random() * cognomi.length)]
+
+
+  console.log(nome, cognome)
+
+
+  // document.getElementsByClassName("userName")[0].innerHTML = "<b> "+nome+" "+cognome+" ▾</b><br> Administrator "
+
+
+  textarea = document.getElementById("myQ")
+
+
+  function notShowHistory() {
+
+    document.getElementsByClassName("historyChat")[0].style.display = "none"
+
+  }
+
+
+  function showHistory() {
+
+    document.getElementsByClassName("historyChat")[0].style.display = "block"
+
+  }
+
+
+  const button = document.getElementById("invia");
+
+  button.disabled = false; // Try disabling first
+
+
+  document.getElementById("invia").onclick = function () {
+
+
+    checkQuestion()
+
+
+    //ADD THE NEW MESSAGES TO THE CHAT
+
+    console.log(document.getElementById("myQ").value)
+
+
+    const chatLine = document.createElement("div")
+
+    const message = document.createElement("div")
+
+
+    const answerChatline = document.createElement("div")
+
+    const answerMessage = document.createElement("div")
+
+
+    chatLine.classList.add("chatLineSent")
+
+    chatLine.id = "chatline" + currentQuestion + "sent"
+
+
+    document.getElementById("chatInterface").appendChild(chatLine)
+
+
+    message.innerHTML = question;
+
+    message.classList.add("message_sent")
+
+    document.getElementById("chatline" + currentQuestion + "sent").appendChild(message)
+
+
+    document.getElementById('chatInterface').scrollTop = document.getElementById('chatInterface').scrollHeight;
+
+
+    answerChatline.classList.add("chatLineRec")
+
+    answerChatline.id = "chatline" + currentQuestion + "rec"
+
+
+    document.getElementById("chatInterface").appendChild(answerChatline)
+
+
+    //answerMessage.innerHTML= answer;
+
+    answerMessage.classList.add("message_rec")
+
+    answerMessage.id = "message" + currentQuestion + "rec"
+
+    document.getElementById("chatline" + currentQuestion + "rec").appendChild(answerMessage)
+
+
+    document.getElementById('chatInterface').scrollTop = document.getElementById('chatInterface').scrollHeight;
+
+
+    currentLine = currentLine + 1
+
+
+    //DISPLAY THE ANSWER WORD BY WORD
+
+    var LetterCount = 1
+
+    var targetId = "message" + currentQuestion + "rec"
+
+
+    var count = 0
+
+
+    // Function to execute before `type` starts
+
+    function preFunction() {
+
+
+      document.getElementById("invia").disabled = true
+
+      if (count % 3 === 0) {
+        document.getElementById(targetId).innerHTML = "● ○ ○";
+      } else if (count % 3 === 1) {
+        document.getElementById(targetId).innerHTML = "○ ● ○";
+      } else if (count % 3 === 2) {
+        document.getElementById(targetId).innerHTML = "○ ○ ●";
+      }
+
+      count++
+
+
+    }
+
+
+    preFunction()
+
+    // Start the `preFunction` with `setInterval`
+
+    var preInterval = setInterval(preFunction, 100);
+
+
+    function type(param) {
+
+      clearInterval(preInterval);
+
+      document.getElementById("invia").disabled = false;
+
+
+      const typingInterval = setInterval(function () {
+
+
+          // document.getElementById("invia").disabled = false
+
+          if (LetterCount <= param.length) {
+
+
+            document.getElementById(targetId).innerHTML = param.slice(0, LetterCount) + "● ● ●"
+
+            LetterCount = LetterCount + 5
+
+            document.getElementById('chatInterface').scrollTop = document.getElementById('chatInterface').scrollHeight;
+
+          } else {
+
+
+            document.getElementById(targetId).innerHTML = param
+
+            clearInterval(typingInterval);
+
+            LetterCount = 1
+
+
+          }
+        },
+
+        50)
+
+    }
+
+
+    setTimeout(function () {
+      type(answer)
+    }, 2000)
+
+
+    console.log(currentQuestion)
+
+
+    currentQuestion = currentQuestion + 1
+
+
+    document.getElementById("myQ").value = ""
+
+
+  };
+
+
+  document.getElementById("myQ").onclick = function () {
+
+
+    console.log(document.getElementById("myQ").classList)
+
+
+    checkQuestion()
+
+    var LetterCount = 1
+
+
+    document.getElementById("myQ").focus = true;
+
+    document.getElementById("myQ").style.pointerEvents = "none";
+
+
+    const newtypingInterval = setInterval(function () {
+
+
+      if (LetterCount <= question.length) {
+
+        document.getElementById("myQ").value = question.slice(0, LetterCount)
+
+        LetterCount++
+      } else {
+
+        document.getElementById("myQ").style.pointerEvents = "auto";
+
+        clearInterval(newtypingInterval)
+
+      }
+
+    }, 100)
+
+  }
+
+
+  function checkQuestion() {
+
+    if (currentQuestion === 1) {
+
+      question = "Quali snack abbineresti?"
+
+      answer = "Per esaltare le caratteristiche della Grappa Nonino Optima, puoi considerare i seguenti abbinamenti: <br><br>Frutta secca o candita: noci, mandorle e nocciole, che offrono una piacevole croccantezza e si armonizzano con le note vanigliate della grappa, metre scorze d'arancia o cedro candito aggiungono una dolcezza equilibrata al distillato.<br> <br>Pasticceria secca e cioccolato: biscotti alle mandorle o cantucci, ideali per accompagnare la grappa grazie alla loro consistenza e sapore; anche del cioccolato, preferibilmente fondente, esalterà i sentori vanigliati del distillato. <br><br>Formaggi e Foie Gras: soprattutto formaggi la cui complessità si sposa bene con le note eleganti della grappa, inoltre la struttura della grappa può essere bilanciata dalla ricchezza del Foie Gras<br><br>Questi abbinamenti ti permettono di apprezzare appieno le sfumature aromatiche e il corpo della Grappa Nonino Optima."
+
+
+    } else if (currentQuestion === 2) {
+
+      question = "Come viene prodotta la vostra 'Grappa Optima'?"
+
+      answer = "La Grappa Nonino Optima è prodotta attraverso un processo artigianale che prevede le seguenti fasi:<br><br>Materia Prima: Vinacce selezionate di uve bianche e rosse provenienti dalle zone delle Grave e dei Colli del Friuli. <br><br>Fermentazione: Le vinacce fresche vengono fermentate sottovuoto in tini d'acciaio inossidabile a temperatura controllata, per prevenire fermentazioni indesiderate. <br><br>Distillazione: Il processo avviene in alambicchi di rame a vapore con metodo discontinuo, seguendo la tradizione familiare. La distillazione lenta consente una corretta evaporazione e condensazione dei componenti aromatici, mantenendo intatte le caratteristiche organolettiche delle uve.<br><br>Invecchiamento: La grappa viene affinata per un periodo che varia dai 12 ai 18 mesi in barriques e piccole botti di rovere. Questo conferisce al distillato una leggera tonalità ambrata e un elegante sentore di vaniglia, senza l'aggiunta di coloranti. <br><br>Questo meticoloso processo produttivo ti garantisce una grappa di alta qualità, caratterizzata da un profilo aromatico raffinato e un gusto equilibrato."
+
+    } else if (currentQuestion === 3) {
+
+      question = "Bene, voglio comprare GRAPPA OPTIMA BARRICATA, mi puoi aiutare?"
+
+      answer = "Il prodotto ‘Grappa Optima Barricata’  è stato aggiunto al tuo carrello, Ecco il <a href='https://example.com' target='_blank'> <span style=color:blue>link</span></a>. <br><br>Scegli il pack più adatto e in due click ti consegneremo 'Grappa Optima Barricata' direttamente a casa.<br><br>Posso esserti utile in altre richieste? Vuoi avere maggiori informazioni?"
+
+    } else {
+
+
+    }
+
+  }
+
+
+</script>
+
+
+</body>
+
+</html>
